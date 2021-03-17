@@ -1,9 +1,11 @@
 package resume_Java;
 
 public class Personne {
+	//Attributs
 	private int age = 18;
 	private String prenom = "Cédric";
 	
+	//Méthodes
 	public void marcher() {
 		
 	}

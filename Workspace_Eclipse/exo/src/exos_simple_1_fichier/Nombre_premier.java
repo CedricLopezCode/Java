@@ -1,10 +1,16 @@
 package exos_simple_1_fichier;
 
+import java.util.Scanner;
+
 public class Nombre_premier {
 
 	public static void main(String[] args) {
 		int nombre_a_tester;
-		nombre_a_tester = 20;
+		//nombre_a_tester = 20;
+		//scan
+		System.out.println("Choisir un nombre");
+		Scanner scan = new Scanner(System.in);
+		nombre_a_tester = scan.nextInt();
 		
 		int nombre_de_diviseur = 0;
 		for(int index_for = 1; index_for < nombre_a_tester; index_for++) {

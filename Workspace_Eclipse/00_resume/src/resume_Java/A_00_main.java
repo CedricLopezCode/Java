@@ -1,22 +1,27 @@
 package resume_Java;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class A_main {
+public class A_00_main {
 
 	public static void main(String[] args) {
 
+		
 					//Type
 		
 	int nombre = 5;
-	float a_virgule = 5.5f; // Attention au f derriere // Ou sinon utiliser double
+	float a_virgule = 5.5f; // Attention au f derriere
+	double a_virgule_double = 6.6; // Ou sinon utiliser double
 	String stringg = "Salut ";// Attention à la majuscule //Double obligatoirement
 	char char_a = 'A'; //Simple obligatoirement
+	boolean vrai_ou_faux = true;
 	int x,y;
 	x= 6;
 	y= 7;
 	final int CONSTANTE_NOM_EN_MAJUSCULE = 8;
 
+	
 					//Tableaux  //Taille fixe
 		//1D
 	int [] tableau_de_nombre = {1, 2, 3, 4};
@@ -65,6 +70,7 @@ public class A_main {
 		System.out.println(""); 
 	}System.out.println("");
 	
+	
 					//Collections = Tableaux dynamiques
 	
 	ArrayList<String> collec = new ArrayList<>(); //ArrayList<Class>
@@ -85,7 +91,22 @@ public class A_main {
 	System.out.println("\tTabulation");
 	System.out.println("Saut ligne\n");
 	
-
+	
+					//Scanner 
+	//necessite le package java.util.scanner
+	
+	System.out.println("Rentrer valeur");
+	Scanner scan = new Scanner(System.in);
+	
+		//depend des types:
+	System.out.println("st");stringg = scan.next(); //String //Forme raccourci 
+	//stringg = scan.nextLine(); //String  //Forme raccourci
+	//char_a = scan.next(); //Char
+	System.out.println("int");nombre = scan.nextInt(); 
+	System.out.println("flo");a_virgule = scan.nextFloat(); //attention ici , 
+	System.out.println("bool");vrai_ou_faux = scan.nextBoolean();
+	
+	
 					//Classes
 	
 	Personne cedric = new Personne(); // Créer objet 
@@ -147,5 +168,23 @@ public class A_main {
 	System.out.println("fin");//2
 	
 }
-
+					//Fonctions, Méthodes
+		
+	public static void simple() {System.out.println("Générique");}
+	//static car n'appartient pas à une classe //ne s'utilise que dans le fichier du main //en dehors du main mais dans le package
+	//void car pas de return //autres types obligés d'avoir un return
+	public static void avec_parametres(int a, int b) {System.out.println(a+b);}
+	public static int avec_type() {return 10;} 
+	
+		//quand on ne sait pas combien il y aura de parametres
+	public static int addition_infinie(int ...nombres) {//autant de parametre que je veux //Mais tous du meme type
+		System.out.println(nombres);//affichage bizarre
+		System.out.println(nombres[0]);//affichage le 1er parametre
+		int somme = 0;
+		for (int i = 0; i < nombres.length; i++) {
+			System.out.println(nombres[i]);
+			somme += nombres[i];
+		}
+		return somme;
+	}
 }

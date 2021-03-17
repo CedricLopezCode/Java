@@ -31,4 +31,14 @@ public class Calculatrice {
 		System.out.println(x + " % " + y + " = " + resultat);
 		
 	}
+	//affichage résultat
+		public static void affichage_operationsbis(float x, float y) {
+
+			System.out.println(x + " + " + y + " = " + addition(x, y));
+			System.out.println(x + " - " + y + " = " + soustraction(x, y));
+			System.out.println(x + " * " + y + " = " + multiplicatrion(x, y));
+			System.out.println(x + " / " + y + " = " + division(x, y));
+			System.out.println(x + " % " + y + " = " + modulo(x, y));
+			
+		}
 }
