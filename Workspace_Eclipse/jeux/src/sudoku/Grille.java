@@ -4,27 +4,38 @@ import java.util.Arrays;
 
 public class Grille {
 	
-	private Cellule [][] grille;
-
-	public void afficher_grille( Cellule [][] grille) {
-		for (int ligne = 0; ligne < Cellule[].length) {
-			for (Cellule cellule : ligne) {
-				System.out.print(cellule + " ");
-			}
-			System.out.println("");
-		}
+	//Attributs
+	protected int taille = 9;
+	protected Cellule [][] grille = new Cellule [9][9];
+	
+	//Méthodes
+	public void creer_grille() {
 		
 	}
-
-	@Override
-	public String toString() {
-		return "Grille [grille=" + Arrays.toString(grille) + "]";
-	}
-
+	//Constructeurs
 	public Grille() {
 		super();
-		this.grille = int[9][9];
-		// TODO Auto-generated constructor stub
+	}
+	public Grille(int taille) {
+		super();
+		this.taille = taille;
 	}
 	
+	//Accesseurs
+	public Cellule[][] getGrille() {
+		return grille;
+	}
+	public void setGrille(Cellule[][] grille) {
+		this.grille = grille;
+	}
+	
+	@Override
+	public String toString() {
+		return "Grille [taille=" + taille + ", grille=" + Arrays.toString(grille) + "]";
+	}
+	
+	
+
+	
+
 }

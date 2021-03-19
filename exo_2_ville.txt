@@ -1,0 +1,8 @@
+Écrivez une classe représentant une ville. 
+
+Elle doit avoir les propriétés nom et département et une méthode affichant « la ville X est dans le département Y ». 
+
+Créez une ville et departement par défaut Paris
+Créez des objets ville, affectez leurs propriétés, et utilisez la méthode d’affichage.
+Remplacer les informations de la ville par défaut par Lyon
+Afficher la nouvelle ville
