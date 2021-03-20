@@ -3,20 +3,24 @@ package serie_1_exo_2_Prof;
 public class Enseignant {
 	protected int id_enseignant;
 	protected String nom_enseignant;
-	protected int id_specialite;
+	protected Specialite specialite;
+	protected static int comptage_enseignant;
 	
 	//Constructeur
 	public Enseignant() {
 		super();
+		this.id_enseignant = ++comptage_enseignant;
 	}
-	public Enseignant(int id_specialite) {
+	public Enseignant(Specialite specialite) {
 		super();
-		this.id_specialite = id_specialite;
+		this.id_enseignant = ++comptage_enseignant;
+		this.specialite = specialite;
 	}
-	public Enseignant(String nom_enseignant, int id_specialite) {
+	public Enseignant(String nom_enseignant, Specialite specialite) {
 		super();
+		this.id_enseignant = ++comptage_enseignant;
 		this.nom_enseignant = nom_enseignant;
-		this.id_specialite = id_specialite;
+		this.specialite = specialite;
 	}
 	
 
@@ -34,17 +38,17 @@ public class Enseignant {
 	public void setNom_enseignant(String nom_enseignant) {
 		this.nom_enseignant = nom_enseignant;
 	}
-	public int getId_specialite() {
-		return id_specialite;
+	public Specialite getSpecialite() {
+		return specialite;
 	}
-	public void setId_specialite(int id_specialite) {
-		this.id_specialite = id_specialite;
+	public void setSpecialite(Specialite specialite) {
+		this.specialite = specialite;
 	}
 	//toString
 	@Override
 	public String toString() {
-		return "Enseignant [id_enseignant=" + id_enseignant + ", nom_enseignant=" + nom_enseignant + ", id_specialite="
-				+ id_specialite + "]";
+		return "Enseignant [id_enseignant=" + id_enseignant + ",\nnom_enseignant=" + nom_enseignant + ",\nspecialite="
+				+ specialite + "]";
 	}
 	
 	

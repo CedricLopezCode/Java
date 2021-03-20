@@ -1,18 +1,30 @@
 package serie_1_exo_1_Livre;
+/*
+// On peut aussi utiliser AtomicInteger pour l'auto incrémentation.
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Livre {
-	protected int id;
+
+    private static AtomicInteger id = new AtomicInteger(0);
+    private int livreID;
+    private String titre;
+    private String auteur;
+    private int prix;
+
+    public Livre(String titre, String auteur, int prix) {
+        this.livreID = id.incrementAndGet();    
+        this.titre = titre;
+        this.auteur = auteur;
+        this.prix = prix;
+}
+ */
+public class Livre {
+	protected static int id;//static pour que ca reste pour le prochain
 	protected String Titre;
 	protected String Auteur;
 	protected float Prix;
 	
 	//Getteurs et Setteurs
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getTitre() {
 		return Titre;
 	}
@@ -31,24 +43,15 @@ public class Livre {
 	public void setPrix(float prix) {
 		Prix = prix;
 	}
-	//toString
-		@Override
-	public String toString() {
-		return "Le livre n°" + id + " s'appelle " + Titre + ",\nIl a été écrit par " + Auteur + " et\nIl coute " + Prix + " €";
-	}
-
-	
+	@Override
+		public String toString() {
+			return "Le livre n°" + id + " s'appelle " + Titre + ",\nIl a été écrit par " + Auteur + " et\nIl coute " + Prix + " €";
+		}
+//return "Le livre n°" + id + " s'appelle " + Titre + ",\nIl a été écrit par " + Auteur + " et\nIl coute " + Prix + " €";
 	//Constructeur
-	public Livre(int id, String titre, String auteur, float prix) {
-		super();
-		this.id = id++;
-		Titre = titre;
-		Auteur = auteur;
-		Prix = prix;
-	}
 	public Livre(String titre, String auteur, float prix) {
 		super();
-		this.id = id++;
+		this.id = ++id;
 		Titre = titre;
 		Auteur = auteur;
 		Prix = prix;

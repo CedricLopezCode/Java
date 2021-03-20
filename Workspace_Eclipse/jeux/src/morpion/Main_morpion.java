@@ -123,9 +123,9 @@ public class Main_morpion {
 	}
 	public static boolean en_diag(char signe, char[][] grille) {
 		if(grille[0][0] == grille[1][1] && grille[0][0] == grille[2][2] && grille[1][1] != ' ') {
-			return true;
+			 return true;
 		}
-		if(grille[2][0] == grille[1][1] && grille[0][0] == grille[0][2] && grille[1][1] != ' ') {
+		if(grille[2][0] == grille[1][1] && grille[2][0] == grille[0][2] && grille[1][1] != ' ') {
 			return true;
 		}
 		return false;

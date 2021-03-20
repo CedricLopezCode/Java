@@ -5,18 +5,16 @@ import java.util.Scanner;
 public class Main_Livre {
 
 	public static void main(String[] args) {
-		int id_dernier_livre = 0;
 		
-		Livre livre_1 = saisie_info(id_dernier_livre);
-		System.out.println(id_dernier_livre);
+		Livre livre_1 = saisie_info();
+		System.out.println();
 		System.out.println(livre_1);
-		System.out.println(id_dernier_livre);
-		Livre livre_2 = saisie_info(id_dernier_livre);
+		System.out.println();
+		Livre livre_2 = saisie_info();
 		System.out.println(livre_2);
 	}//Fin Main
 	
-	public static Livre saisie_info(int id_dernier_livre) {
-		id_dernier_livre++;
+	public static Livre saisie_info() {
 		Scanner scan = new Scanner(System.in);
 		//Saisie
 		System.out.println("Rentrer le titre du livre");

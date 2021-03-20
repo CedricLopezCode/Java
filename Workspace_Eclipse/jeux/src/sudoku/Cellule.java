@@ -1,15 +1,16 @@
 package sudoku;
 
-public class Cellule extends Grille{
+public class Cellule{
 	//Attributs
-	private int coord_ligne;
-	private int coord_col;
-	private int chiffre;
+	protected int coord_ligne;
+	protected int coord_col;
+	protected int chiffre;
 
 	//Méthodes
 	public int afficher_case() {
 		return chiffre;
 	}
+	
 	
 	//Constructeur
 	public Cellule() {
@@ -19,13 +20,17 @@ public class Cellule extends Grille{
 		super();
 		this.chiffre = chiffre;
 	}
+	public Cellule(int coord_ligne, int coord_col) {
+		super();
+		this.coord_ligne = coord_ligne;
+		this.coord_col = coord_col;
+	}
 	public Cellule(int coord_ligne, int coord_col, int chiffre) {
 		super();
 		this.chiffre = chiffre;
 		this.coord_ligne = coord_ligne;
 		this.coord_col = coord_col;
 	}
-
 	//Accesseurs
 	public int getChiffre() {
 		return chiffre;
@@ -53,7 +58,7 @@ public class Cellule extends Grille{
 
 	@Override
 	public String toString() {
-		return "Case en " + coord_ligne +" , "+ coord_col +" contient le chiffre: " + chiffre;
+		return "Case en " + (coord_ligne+1) +" , "+ (coord_col+1) +" contient le chiffre: " + chiffre;
 	}
 	
 	

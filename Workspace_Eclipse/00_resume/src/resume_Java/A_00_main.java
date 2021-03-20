@@ -1,6 +1,7 @@
 package resume_Java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class A_00_main {
@@ -24,9 +25,9 @@ public class A_00_main {
 	
 					//Tableaux  //Taille fixe
 		//1D
-	int [] tableau_de_nombre = {1, 2, 3, 4};
+	int [] tableau_de_nombre = {1, 2, 3, 4}; 
 	String [] tableau_de_string = {"aaa", "bbb", "ccc", "ddd"};
-	System.out.println(tableau_de_nombre[1]); //2
+	System.out.println(tableau_de_nombre[1]); //2 car indice commence à 0
 	
 		//2D
 	int [][] tableau_2D = {
@@ -34,7 +35,7 @@ public class A_00_main {
 			{5, 6, 7, 8},
 			{9, 10, 11, 12}
 	};
-
+	System.out.println(tableau_2D[0][2]); //3
 	for(int[] for_each1d:tableau_2D) {
 		for(int for_each2d:for_each1d) {
 			System.out.print(for_each2d + " ");
@@ -46,8 +47,8 @@ public class A_00_main {
 	int [][][] tableau_3D = { //tres rare et difficile
 		{
 			{11, 2, 3, 4},
-			{15, 6, 7, 8},
-			{19, 10, 11, 12}
+			{5, 6, 7, 8},
+			{9, 10, 11, 12}
 		},
 		{
 			{21, 2, 3, 4},
@@ -73,10 +74,25 @@ public class A_00_main {
 	
 					//Collections = Tableaux dynamiques
 	
-	ArrayList<String> collec = new ArrayList<>(); //ArrayList<Class>
-	//necessite package //ajout automatique apres avoir ecrit: ctrl + maj + O
-	collec.add("cedric");
-	collec.add("moussa"); // obligé de répéter le add //Ne marche pas avec ,
+	ArrayList<Integer> collec = new ArrayList<Integer>(); //ArrayList<Class>
+	//Class = Integer, Float(virgule obligatoire), Double(virgule obligatoire), etc...
+	//necessite package java.util.ArrayList//ajout automatique apres avoir ecrit: ctrl + maj + O
+	collec.add(2);//ajoute à la fin
+	collec.add(3); // obligé de répéter le add //Ne marche pas avec ,
+	collec.add(0, 11); //index, valeur
+	collec.get(1);//retourne la valeur
+	collec.set(0,1);//modifie la valeur //index, valeur
+	collec.remove(1);//supprime l'élément indexé
+	collec.size();//retourne la taille la collection //==.length
+	collec.clear(); //vide la collection
+	
+		//Tri
+	collec.add(2); collec.add(3); collec.add(1); collec.add(13); collec.add(7); collec.add(2);
+	System.out.println(collec);
+	Collections.sort(collec); //Tri la collection par ordre alphabetique ou numérique
+	//necessite package java.util.Collections;//ajout automatique apres avoir ecrit: ctrl + maj + O
+	System.out.println(collec); System.out.println();
+	
 	
 	
 					//Print
@@ -101,7 +117,7 @@ public class A_00_main {
 		//depend des types:
 	System.out.println("st");stringg = scan.next(); //String //Forme raccourci 
 	//stringg = scan.nextLine(); //String  //Forme raccourci
-	//char_a = scan.next(); //Char
+	char_a = scan.next().charAt(0); //Char
 	System.out.println("int");nombre = scan.nextInt(); 
 	System.out.println("flo");a_virgule = scan.nextFloat(); //attention ici , 
 	System.out.println("bool");vrai_ou_faux = scan.nextBoolean();
@@ -112,6 +128,13 @@ public class A_00_main {
 	Personne cedric = new Personne(); // Créer objet 
 	cedric.montrer_var(); //Utiliser méthodes de la classe
 	System.out.println("");
+	
+			//Héritage
+	
+	Lion simba = new Lion(); // Créer objet 
+	simba.manger();
+	simba.nommer();
+	
 	
 					//Boucles
 	

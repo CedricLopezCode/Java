@@ -4,15 +4,17 @@ public class Specialite {
 	
 	protected int id_specialite;
 	protected String nom_specialite;
-	
+	protected static int comptage;
 	//Constructeur
 	public Specialite() {
 		super();
+		this.id_specialite = ++comptage;
 		this.nom_specialite = "Rien";
 	}
 
 	public Specialite(String nom_specialite) {
 		super();
+		this.id_specialite = ++comptage;
 		this.nom_specialite = nom_specialite;
 	}
 
@@ -36,7 +38,7 @@ public class Specialite {
 	//toString
 	@Override
 	public String toString() {
-		return "Specialite [id_specialite=" + id_specialite + ", nom_specialite=" + nom_specialite + "]";
+		return "Specialite n°" + id_specialite + " est " + nom_specialite;
 	}
 	
 	
