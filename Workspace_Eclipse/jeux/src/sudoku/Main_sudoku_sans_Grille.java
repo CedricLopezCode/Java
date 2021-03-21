@@ -1,9 +1,10 @@
 package sudoku;
 
-import java.util.Iterator;
+
 import java.util.Scanner;
 
-public class Main_sudoku {
+
+public class Main_sudoku_sans_Grille {
 
 	public static void main(String[] args) {
 		//Creation et Affichage
@@ -13,6 +14,39 @@ public class Main_sudoku {
 	Cellule en_cours = new Cellule();
 		//Interaction Joueur
 	int nombre_de_coup = 0;
+	//-----------------------------------------------------------
+				//test avec classe grille
+	//par defaut
+	Grille grille_classe = new Grille();
+	grille_classe.afficher_brut();
+	
+	//avec chaque celulle connues en param
+	int[] cellule_connue_1 = {1,1,1};
+	int[] cellule_connue_2 = {2,2,2};
+	int[] cellule_connue_3 = {3,3,3};
+	int[] cellule_connue_4 = {4,4,4};
+	int[] cellule_connue_5 = {5,5,5};
+	int[] cellule_connue_6 = {6,6,6};
+
+	Grille grille_test_valeurs = new Grille(cellule_connue_1, cellule_connue_2, cellule_connue_3/*{1,1,1},{2,2,2},{3,3,3},{4,4,4},{5,5,5},{6,6,6}*/);
+	grille_test_valeurs.afficher_brut();
+	
+	//avec 1 tableau des cellules connues en param
+		int[][] cellules_connues = {
+			{1,1,1},
+			{2,2,2},
+			{3,3,3},
+			{4,4,4},
+			{5,5,5},
+			{6,6,6},
+			{7,7,7},
+			{8,8,8}
+		};
+
+		Grille grille_test_tableau = new Grille(cellules_connues);
+		grille_test_tableau.afficher_brut();
+	//-----------------------------------------------------------
+	
 	do { //juste_1_coup();
 		
 		//Version Bourrin

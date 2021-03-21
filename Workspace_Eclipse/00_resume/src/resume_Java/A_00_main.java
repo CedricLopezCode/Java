@@ -132,8 +132,14 @@ public class A_00_main {
 			//Héritage
 	
 	Lion simba = new Lion(); // Créer objet 
-	simba.manger();
-	simba.nommer();
+	System.out.println(simba.manger());
+	System.out.println(simba.nommer());
+	
+			//Interface
+	//On donne la méthode dans le fichier d'interface et on défini ensuite dans chaque Classe
+	System.out.println(cedric.caresser());
+	System.out.println(simba.caresser());
+
 	
 	
 					//Boucles
