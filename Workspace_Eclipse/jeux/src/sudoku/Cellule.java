@@ -1,17 +1,45 @@
 package sudoku;
 
+import java.util.Scanner;
+
 public class Cellule{
-	//Attributs
+			//Attributs
 	protected int coord_ligne;
 	protected int coord_col;
 	protected int chiffre;
 
-	//Méthodes
+			//Méthodes
 	public int afficher_case() {
 		return chiffre;
 	}
-	
-	
+	public Cellule choix_case() { //pour avec Classe Grille
+		Scanner scan = new Scanner(System.in);
+		int choix_ligne, choix_colonne, choix_chiffre;
+		//Saisie valeur valide
+		do {
+			System.out.println("Choisir une ligne");
+			choix_ligne = scan.nextInt();
+		} while( plage_valide("La ligne", choix_ligne) == false );
+		do {
+			System.out.println("Choisir une colonne");
+			choix_colonne = scan.nextInt();
+		} while( plage_valide("La colonne", choix_colonne) == false );
+		do {
+			System.out.println("Choisir le chiffre à mettre");
+			choix_chiffre = scan.nextInt();
+		} while( plage_valide("Le chiffre", choix_chiffre) == false );
+		Cellule en_cours = new Cellule(choix_ligne-1, choix_colonne-1, choix_chiffre);
+		
+		return en_cours;
+	}
+	public boolean plage_valide(String a_tester, int valeur) { //pour avec Classe Grille
+		if(1 <= valeur && valeur <= 9){
+			return true;
+		}else{
+			System.out.println(a_tester +" doit etre entre 1 et 9");
+		}
+			return false;
+	}
 	//Constructeur
 	public Cellule() {
 		super();

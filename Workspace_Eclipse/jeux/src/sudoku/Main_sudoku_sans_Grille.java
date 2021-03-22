@@ -14,38 +14,7 @@ public class Main_sudoku_sans_Grille {
 	Cellule en_cours = new Cellule();
 		//Interaction Joueur
 	int nombre_de_coup = 0;
-	//-----------------------------------------------------------
-				//test avec classe grille
-	//par defaut
-	Grille grille_classe = new Grille();
-	grille_classe.afficher_brut();
-	
-	//avec chaque celulle connues en param
-	int[] cellule_connue_1 = {1,1,1};
-	int[] cellule_connue_2 = {2,2,2};
-	int[] cellule_connue_3 = {3,3,3};
-	int[] cellule_connue_4 = {4,4,4};
-	int[] cellule_connue_5 = {5,5,5};
-	int[] cellule_connue_6 = {6,6,6};
 
-	Grille grille_test_valeurs = new Grille(cellule_connue_1, cellule_connue_2, cellule_connue_3/*{1,1,1},{2,2,2},{3,3,3},{4,4,4},{5,5,5},{6,6,6}*/);
-	grille_test_valeurs.afficher_brut();
-	
-	//avec 1 tableau des cellules connues en param
-		int[][] cellules_connues = {
-			{1,1,1},
-			{2,2,2},
-			{3,3,3},
-			{4,4,4},
-			{5,5,5},
-			{6,6,6},
-			{7,7,7},
-			{8,8,8}
-		};
-
-		Grille grille_test_tableau = new Grille(cellules_connues);
-		grille_test_tableau.afficher_brut();
-	//-----------------------------------------------------------
 	
 	do { //juste_1_coup();
 		
@@ -57,8 +26,9 @@ public class Main_sudoku_sans_Grille {
 		afficher_morpion(grille);*/
 		
 		//Version avec cellule de liaison
+		afficher(grille); afficher_morpion(grille);
 		afficher_brut(grille);
-		en_cours = choix_case(grille);
+		en_cours = choix_case();
 		if(case_occupee(en_cours, grille) && annulation_coup(en_cours, grille)){break;}
 		grille = insertion_chiffre(en_cours, grille);
 		//System.out.println(grille);
@@ -92,7 +62,7 @@ public class Main_sudoku_sans_Grille {
 	public static void afficher(Cellule[][] grille) {
 		System.out.println(" _____________________________________");
 		for(int ligne = 0; ligne < 9; ligne++) {
-			//System.out.println("|   |   |   |   |   |   |   |   |   |");
+			System.out.println("|   |   |   |   |   |   |   |   |   |");
 			for(int col = 0; col < 9; col++) {
 				//System.out.print(" ");System.out.print("| "); System.out.print(" ");
 				if(grille[ligne][col].getChiffre() == 0) {
@@ -135,7 +105,7 @@ public class Main_sudoku_sans_Grille {
 		Scanner scanner = new Scanner(System.in);
 		return scanner.nextInt();
 	}
-	public static boolean plage_valide(String a_tester, int valeur,  Cellule[][] grille) {
+	public static boolean plage_valide(String a_tester, int valeur) {
 		if(1 <= valeur && valeur <= 9){
 			return true;
 		}else{
@@ -153,15 +123,15 @@ public class Main_sudoku_sans_Grille {
 		do {
 			System.out.println("Choisir une ligne");
 			choix_ligne = scan();
-		} while( plage_valide("La ligne", choix_ligne, grille) == false );
+		} while( plage_valide("La ligne", choix_ligne) == false );
 		do {
 			System.out.println("Choisir une colonne");
 			choix_colonne = scan();
-		} while( plage_valide("La colonne", choix_colonne, grille) == false );
+		} while( plage_valide("La colonne", choix_colonne) == false );
 		do {
 			System.out.println("Choisir le chiffre à mettre");
 			choix_chiffre = scan();
-		} while( plage_valide("Le chiffre", choix_chiffre, grille) == false );
+		} while( plage_valide("Le chiffre", choix_chiffre) == false );
 	//------------------------------------------------------------------------------	
 		//Case vide ou pas
 		if(grille[choix_ligne-1][choix_colonne-1].getChiffre() != 0) {
@@ -176,24 +146,25 @@ public class Main_sudoku_sans_Grille {
 	//---------------------------------------------------------------------------
 	
 	//Version avec cellule intermediaire
-	public static Cellule choix_case(Cellule[][] grille) {
+	public static Cellule choix_case() {
 		int choix_ligne, choix_colonne, choix_chiffre;
 		//Saisie valeur valide
 		do {
 			System.out.println("Choisir une ligne");
 			choix_ligne = scan();
-		} while( plage_valide("La ligne", choix_ligne, grille) == false );
+		} while( plage_valide("La ligne", choix_ligne) == false );
 		do {
 			System.out.println("Choisir une colonne");
 			choix_colonne = scan();
-		} while( plage_valide("La colonne", choix_colonne, grille) == false );
+		} while( plage_valide("La colonne", choix_colonne) == false );
 		do {
 			System.out.println("Choisir le chiffre à mettre");
 			choix_chiffre = scan();
-		} while( plage_valide("Le chiffre", choix_chiffre, grille) == false );
+		} while( plage_valide("Le chiffre", choix_chiffre) == false );
 		Cellule en_cours = new Cellule(choix_ligne-1, choix_colonne-1, choix_chiffre);
 		return en_cours;
 	}
+	
 	public static boolean case_occupee(Cellule en_cours, Cellule[][] grille) {
 		if(grille[en_cours.getCoord_ligne()][en_cours.getCoord_col()].getChiffre() != 0) {
 			System.out.println("La case "+ (en_cours.getCoord_ligne()+1) +" "+(en_cours.getCoord_col()+1)+" est déjà prise !");
