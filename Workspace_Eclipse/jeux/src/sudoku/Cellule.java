@@ -29,7 +29,7 @@ public class Cellule{
 			choix_chiffre = scan.nextInt();
 		} while( plage_valide("Le chiffre", choix_chiffre) == false );
 		Cellule en_cours = new Cellule(choix_ligne-1, choix_colonne-1, choix_chiffre);
-		
+		scan.close();
 		return en_cours;
 	}
 	public boolean plage_valide(String a_tester, int valeur) { //pour avec Classe Grille

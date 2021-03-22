@@ -115,12 +115,12 @@ public class A_00_main {
 	Scanner scan = new Scanner(System.in);
 	
 		//depend des types:
-	System.out.println("st");stringg = scan.next(); //String //Forme raccourci 
+	System.out.println("string"); 	stringg = scan.next(); //String //Forme raccourci 
 	//stringg = scan.nextLine(); //String  //Forme raccourci
-	char_a = scan.next().charAt(0); //Char
-	System.out.println("int");nombre = scan.nextInt(); 
-	System.out.println("flo");a_virgule = scan.nextFloat(); //attention ici , 
-	System.out.println("bool");vrai_ou_faux = scan.nextBoolean();
+	System.out.println("char");	char_a = scan.next().charAt(0); //Char
+	System.out.println("int");	nombre = scan.nextInt(); 
+	System.out.println("flo");	a_virgule = scan.nextFloat(); //attention ici , 
+	System.out.println("bool");	vrai_ou_faux = scan.nextBoolean();
 	
 	
 					//Classes
@@ -194,7 +194,7 @@ public class A_00_main {
 	
 					//Affichage
 	
-	System.out.println("fin");//2
+	System.out.println("fin");//fin main
 	
 }
 					//Fonctions, Méthodes

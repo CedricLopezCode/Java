@@ -14,6 +14,7 @@ public class Lion extends Animal implements Interface_Homme_Lion{
 	public String dormir() {return "dodo";};
 	
 	//Interface
+	@Override
 	public String caresser() {
 		return "Un futur repas vient me voir";
 	}

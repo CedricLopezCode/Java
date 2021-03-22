@@ -55,8 +55,52 @@ public class Main_sudoku_avec_Grille {
 		Grille grille_victoire = new Grille(victoire);
 		grille_victoire.insertion_chiffre(new Cellule(8,8,0));
 		
+		//reel facile
+		//avec 1 tableau des cellules connues en param
+		int[][] cellules_reel = {
+			{1,1,7},
+			{1,3,3},
+			{1,4,1},
+			{1,7,9},
+			{1,9,4},
+			{2,4,4},
+			{2,3,5},
+			{2,8,7},
+			{2,9,3},
+			{3,2,2},
+			{3,4,3},
+			{3,6,4},
+			{3,7,1},
+			{3,9,5},
+			{4,1,6},
+			{4,2,7},
+			{4,5,3},
+			{4,2,8},
+			{4,3,9},
+			{5,2,3},
+			{5,3,1},
+			{5,4,6},
+			{5,5,4},
+			{5,8,5},
+			{6,5,5},
+			{6,8,4},
+			{7,4,7},
+			{7,7,5},
+			{7,9,8},
+			{8,3,6},
+			{8,4,1},
+			{8,6,8},
+			{8,7,5},
+			{9,3,4},
+			{9,4,7},
+			{9,5,5},
+			{9,7,6},
+			{9,8,9}
+		};
+		Grille grille_reel = new Grille(cellules_reel);
+				
 		//choix grille 
-		Grille grille = grille_victoire;
+		Grille grille = grille_reel;
 
 				//Preparation
 		Cellule en_cours = new Cellule();
@@ -71,6 +115,7 @@ public class Main_sudoku_avec_Grille {
 				grille.insertion_chiffre(en_cours);
 				nombre_de_coup ++;
 				//Analyse grille
+				System.out.println("analyse");
 				grille.doublon_dans_ligne(en_cours); 
 				grille.doublon_dans_colonne(en_cours);
 				grille.doublon_dans_carre(en_cours);
@@ -93,7 +138,7 @@ public class Main_sudoku_avec_Grille {
 			choix_remplacement = scan.nextInt();
 			if  ( choix_remplacement == 0 ) {return false;}
 		}while (choix_remplacement != 5);
-	
+		scan.close();
 		return true;
 	}
 

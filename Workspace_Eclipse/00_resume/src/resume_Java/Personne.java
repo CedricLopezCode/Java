@@ -60,6 +60,13 @@ public class Personne implements Interface_Homme_Lion{
 		return "Personne [age=" + age + ", prenom=" + prenom + "]";
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 	//Interface
 	@Override
 	public String caresser() {
