@@ -123,12 +123,6 @@ public class Grille {
 	public boolean doublon_dans_ligne(Cellule en_cours){
 		int lgn = en_cours.getCoord_ligne(); 
 		for(int col = 0; col < 9; col++) { 
-			//System.out.println(en_cours);
-			//System.out.print("chiffre tab "+grille[lgn][col].getChiffre());
-			//System.out.println(" chiffre en cours "+en_cours.getChiffre());
-			//System.out.print("col " +col);
-			//System.out.println(" col en_cours "+en_cours.getCoord_col());
-			
 			if( grille[lgn][col].getChiffre() == en_cours.getChiffre() && col != en_cours.getCoord_col()) {
 				System.out.println("Il y a déjà un "+ en_cours.getChiffre() + " dans la ligne !");
 				return true;
