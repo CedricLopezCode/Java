@@ -1,7 +1,11 @@
 package resume_Java;
+//Pour l'auto incrémentation.
+import java.util.concurrent.atomic.AtomicInteger;//Pour l'auto incrément
 
 public class Personne implements Interface_Homme_Lion{
 	//Attributs
+	protected static AtomicInteger id = new AtomicInteger(/*valeur initiale si != 0*/);
+	protected int id_Personne;
 	protected int age = 18;
 	protected String prenom = "Cédric";
 	protected static int comptage; 
@@ -28,6 +32,7 @@ public class Personne implements Interface_Homme_Lion{
 	//autant qu'on veut pour les adapter suivant les besoins
 	public Personne() {
 		super();
+		this.id_Personne = id.incrementAndGet(); //Atomic Integer
 	}
 	public Personne(int age, String prenom) {
 		super();
@@ -57,7 +62,7 @@ public class Personne implements Interface_Homme_Lion{
 	//toString pour decrire // Personnalisable
 	@Override
 	public String toString() {
-		return "Personne [age=" + age + ", prenom=" + prenom + "]";
+		return "Personne [id_Personne=" + id_Personne + ", age=" + age + ", prenom=" + prenom + "]";
 	}
 	
 	

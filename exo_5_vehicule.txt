@@ -1,14 +1,25 @@
 
 • Créer une classe Véhicule 
-• 2 classes qui en héritent : Voiture et Moto qui vont contenir des méthodes pour retourner : 
+
+• 2 classes qui en héritent : Voiture et Moto 
+qui vont contenir des méthodes pour retourner : 
 
 	- le nombre de roues (lié au type de véhicule)
-	- le type de carburant (essence ou diesel) - la vitesse max 
-• Ajouter un constructeur • Instancier un véhicule de chaque type 
+	- le type de carburant (essence ou diesel) 
+	- la vitesse max 
+
+• Ajouter un constructeur 
+
+• Instancier un véhicule de chaque type 
+
 • Ajouter 2 attributs contenanceReservoir et contenuReservoir 
-• Créer une classe Pompe (à essence) avec 3 attributs : typeCarburant, contenance et contenu 
 
-• Dans Vehicule, ajouter une méthode fairePlein() qui prend une Pompe en paramètre, qui remplit le reservoir du Vehicule et enlève autant d'essence à la Pompe 
+• Créer une classe Pompe (à essence) avec 3 attributs : 
+typeCarburant, contenance et contenu 
 
-• **** bonus : 
-	• - vérifier qu'on fait le plein à une pompe du même type de carburant que le véhicule
+• Dans Vehicule, ajouter une méthode fairePlein() 
+qui prend une Pompe en paramètre, 
+qui remplit le reservoir du Vehicule et enlève autant d'essence à la Pompe 
+0478424932
+ **** bonus : 
+• - vérifier qu'on fait le plein à une pompe du même type de carburant que le véhicule

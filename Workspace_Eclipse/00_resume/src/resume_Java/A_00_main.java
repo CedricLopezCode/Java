@@ -1,6 +1,7 @@
 package resume_Java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -77,6 +78,8 @@ public class A_00_main {
 	ArrayList<Integer> collec = new ArrayList<Integer>(); //ArrayList<Class>
 	//Class = Integer, Float(virgule obligatoire), Double(virgule obligatoire), etc...
 	//necessite package java.util.ArrayList//ajout automatique apres avoir ecrit: ctrl + maj + O
+	ArrayList<String> semaine = new ArrayList<>(Arrays.asList("lundi","mar","dimanc"));
+	//necessite package java.util.Arrays
 	collec.add(2);//ajoute à la fin
 	collec.add(3); // obligé de répéter le add //Ne marche pas avec ,
 	collec.add(0, 11); //index, valeur
@@ -84,7 +87,8 @@ public class A_00_main {
 	collec.set(0,1);//modifie la valeur //index, valeur
 	collec.remove(1);//supprime l'élément indexé
 	collec.size();//retourne la taille la collection //==.length
-	collec.clear(); //vide la collection
+	collec.indexOf(3); //retourne l'index de cette valeur //-1 si pas trouvé
+	collec.clear(); //vide le contenu la collection
 	
 		//Tri
 	collec.add(2); collec.add(3); collec.add(1); collec.add(13); collec.add(7); collec.add(2);
@@ -108,7 +112,7 @@ public class A_00_main {
 	System.out.println("Saut ligne\n");
 	
 	
-					//Scanner 
+	/*				//Scanner 
 	//necessite le package java.util.scanner
 	
 	System.out.println("Rentrer valeur");
@@ -121,19 +125,19 @@ public class A_00_main {
 	System.out.println("int");	nombre = scan.nextInt(); 
 	System.out.println("flo");	a_virgule = scan.nextFloat(); //attention ici , 
 	System.out.println("bool");	vrai_ou_faux = scan.nextBoolean();
-	
+	*/
 	
 					//Classes
 	
 	Personne cedric = new Personne(); // Créer objet 
 	cedric.montrer_var(); //Utiliser méthodes de la classe
 	System.out.println("");
-	
 			//Héritage
 	
 	Lion simba = new Lion(); // Créer objet 
+	Animal polymorphisme = new Lion(); //Autre facon d'ecrire == polymorphisme
 	System.out.println(simba.manger());
-	System.out.println(simba.nommer());
+	System.out.println(polymorphisme.nommer()); 
 	
 			//Interface
 	//On donne la méthode dans le fichier d'interface et on défini ensuite dans chaque Classe
