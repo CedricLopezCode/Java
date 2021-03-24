@@ -1,6 +1,8 @@
 package sudoku;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
 
 
 public class Main_sudoku_avec_Grille {
@@ -98,9 +100,17 @@ public class Main_sudoku_avec_Grille {
 			{9,8,9}
 		};
 		Grille grille_reel = new Grille(cellules_reel);
-				
+//--------------------------------------------------------------------------------------------
+		//grille dao 
+		Grille_dao dao_grille = new Grille_dao();
+		int num_grille = dao_grille.choix_numero_grille();
+		ArrayList<Cellule> liste_cell_connues = dao_grille.recup_cell_connues(num_grille);
+		Grille grille_dao = new Grille(liste_cell_connues);
+//--------------------------------------------------------------------------------------------
+		
+		
 		//choix grille 
-		Grille grille = grille_reel;
+		Grille grille = grille_dao;
 
 				//Preparation
 		Cellule en_cours = new Cellule();
@@ -128,6 +138,8 @@ public class Main_sudoku_avec_Grille {
 
 	}	//Fin main
 
+	
+	
 	public static boolean validation_remplacement(Cellule en_cours, Grille grille) {
 		Scanner scan = new Scanner(System.in);
 
@@ -138,7 +150,6 @@ public class Main_sudoku_avec_Grille {
 			choix_remplacement = scan.nextInt();
 			if  ( choix_remplacement == 0 ) {return false;}
 		}while (choix_remplacement != 5);
-		scan.close();
 		return true;
 	}
 

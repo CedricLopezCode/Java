@@ -6,7 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 //Couche persistence
-public class getConnect {
+public class GetConnect {
+	
 	public static Connection getConnection() {
 		//preparation
 		String url = "jdbc:mysql://localhost/";

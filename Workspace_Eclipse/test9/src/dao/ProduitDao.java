@@ -3,10 +3,12 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProduitDao implements IDAO<Produit>{
 
-	Connection connect = getConnect.getConnection();
+	Connection connect = GetConnect.getConnection();
 	
 	@Override
 	public void create(Produit object) {
@@ -25,7 +27,7 @@ public class ProduitDao implements IDAO<Produit>{
 	}
 
 	@Override
-	public void read() {
+	public void afficher() {
 		try {
 			PreparedStatement rPro = connect.prepareStatement("SELECT * FROM produit");
 			ResultSet rs = rPro.executeQuery();
@@ -40,9 +42,25 @@ public class ProduitDao implements IDAO<Produit>{
 			System.out.println("Read Produit KO");
 		}
 	}
-
 	@Override
-	public void update(Produit object, int id, String nv_nom) {
+	public List<Produit> lister() {
+		List<Produit> liste = new ArrayList<Produit>();
+		try {
+			PreparedStatement lPro = connect.prepareStatement("SELECT * FROM client");//pas besoin de ; a la fin de la requete
+			ResultSet rs /*convention*/ = lPro.executeQuery();
+			while(rs.next()) {
+				Produit pro = new Produit(null);
+				pro.setNomP(rs.getString("nomP"));
+				liste.add(pro);
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+			System.out.println("Liste Produit KO");
+		}
+		return liste;
+	}
+	@Override
+	public void update(int id, String nv_nom) {
 		try {
 			PreparedStatement uPro = connect.prepareStatement("UPDATE produit "+"SET nomP = ? " + "WHERE id= ?");
 			uPro.setString(1, nv_nom);
@@ -57,7 +75,7 @@ public class ProduitDao implements IDAO<Produit>{
 	}
 
 	@Override
-	public void delete(Produit object, int id) {
+	public void delete(int id) {
 		try {
 			PreparedStatement dPro = connect.prepareStatement("DELETE FROM produit "+"WHERE id= ?");
 			dPro.setInt(1, id);

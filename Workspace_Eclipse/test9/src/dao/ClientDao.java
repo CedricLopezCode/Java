@@ -3,10 +3,12 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientDao implements IDAO<Client>{
 
-	Connection connect = getConnect.getConnection();
+	Connection connect = GetConnect.getConnection();
 	
 	@Override
 	public void create(Client object) {
@@ -24,7 +26,7 @@ public class ClientDao implements IDAO<Client>{
 	}
 
 	@Override
-	public void read() {
+	public void afficher() {
 		try {
 			PreparedStatement rCli = connect.prepareStatement("SELECT * FROM client");//pas besoin de ; a la fin de la requete
 			ResultSet rs /*convention*/ = rCli.executeQuery();
@@ -37,10 +39,28 @@ public class ClientDao implements IDAO<Client>{
 			System.out.println("Read client KO");
 		}
 	}
-
+	@Override
+	public List<Client> lister() {
+		List<Client> liste = new ArrayList<Client>();
+		try {
+			PreparedStatement lCli = connect.prepareStatement("SELECT * FROM client");//pas besoin de ; a la fin de la requete
+			ResultSet rs /*convention*/ = lCli.executeQuery();
+			while(rs.next()) {
+				Client cli = new Client(null, null);
+				cli.setId(rs.getInt("id"));
+				cli.setNom(rs.getString("nom"));
+				cli.setPrenom(rs.getString("prenom"));
+				liste.add(cli);
+			}
+		}catch(Exception e) {
+			System.out.println(e);
+			System.out.println("Liste client KO");
+		}
+		return liste;
+	}
 	
 	@Override
-	public void update(Client object, int id, String nv_nom) {
+	public void update(int id, String nv_nom) {
 		try {
 			PreparedStatement uCli = connect.prepareStatement("UPDATE client " + "SET prenom = ? " +"WHERE id= ?");
 			uCli.setString(1, nv_nom);
@@ -54,7 +74,7 @@ public class ClientDao implements IDAO<Client>{
 	}
 
 	@Override
-	public void delete(Client object, int id) {
+	public void delete( int id) {
 		try {
 			PreparedStatement dCli = connect.prepareStatement("DELETE FROM client "+"WHERE id= ?");
 			dCli.setInt(1, id);
@@ -84,5 +104,7 @@ public class ClientDao implements IDAO<Client>{
 			System.out.println("Vider Table client KO");
 		}
 	}
+
+	
 
 }

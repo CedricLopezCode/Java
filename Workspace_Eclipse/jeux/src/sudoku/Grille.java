@@ -1,5 +1,6 @@
 package sudoku;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Grille {
@@ -25,9 +26,7 @@ public class Grille {
 				grille[ligne][col] = new Cellule(ligne, col, 0);
 			}
 		}
-		
 		// + personnalisation suivant les données rentrées
-		
 		for (int[] cell_donnees : donnees) {
 			grille[cell_donnees[0]-1][cell_donnees[1]-1].setChiffre(cell_donnees[2]);
 		}
@@ -40,11 +39,22 @@ public class Grille {
 				grille[ligne][col] = new Cellule(ligne, col, 0);
 			}
 		}
-		
 		// + personnalisation suivant les données rentrées
-		
 		for (int[] cell_donnees : tab_donnees) {
 			grille[cell_donnees[0]-1][cell_donnees[1]-1].setChiffre(cell_donnees[2]);
+		}
+	}
+	public Grille(ArrayList<Cellule> tab_cell) {
+		//constructeur par defaut
+		super();
+		for(int ligne = 0; ligne < 9; ligne++) {
+			for(int col = 0; col < 9; col++) {
+				grille[ligne][col] = new Cellule(ligne, col, 0);
+			}
+		}
+		// + personnalisation suivant les données rentrées
+		for (Cellule cell_donnees : tab_cell) {
+			grille[(cell_donnees.coord_ligne) -1][(cell_donnees.getCoord_col()) -1].setChiffre(cell_donnees.getChiffre());
 		}
 	}
 	//-------------------------------------------------------------------------

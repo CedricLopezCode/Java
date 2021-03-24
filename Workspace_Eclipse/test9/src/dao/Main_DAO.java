@@ -1,16 +1,22 @@
 package dao;
 
-import java.sql.Connection;
+import java.util.List;
 
 public class Main_DAO {
 
 	public static void main(String[] args) {
 		
-		Connection testConnection = getConnect.getConnection();
+		//Connection testConnection = GetConnect.getConnection();
 		
 		//Preparation Client
 		ClientDao dao_client = new ClientDao();
-		dao_client.read();
+		
+		//afficher via recup
+		List<Client> liste_client = dao_client.lister();
+		System.out.println("\nid"+ "\t" +"nom" +"\t"+ "prenom");
+		for (Client client: dao_client.lister()) {
+			System.out.println(client.getId() +"\t"+ client.getNom()+"\t"+ client.getPrenom());
+		}
 		
 		//Creation Client
 		dao_client.create(new Client("aa", "aaaa"));
@@ -22,23 +28,23 @@ public class Main_DAO {
 		dao_client.create(new Client("gg", "gggg"));
 		
 		//Read client
-		dao_client.read();
+		dao_client.afficher();
 		
 		//Update Client
-		dao_client.update(null, 2, "Cedric");
-		dao_client.read();
+		dao_client.update(2, "Cedric");
+		dao_client.afficher();
 		
 		//Delete Client
-		dao_client.delete(null, 15);
-		dao_client.read();
+		dao_client.delete(15);
+		dao_client.afficher();
 		
 		//Vider Table Client
 		dao_client.vider_table(null);
-		dao_client.read();
+		dao_client.afficher();
 		
 		//Preparation produit
 		ProduitDao dao_produit = new ProduitDao();
-		dao_produit.read();
+		dao_produit.afficher();
 		
 		//Creation produit
 		dao_produit.create(new Produit("atta"));
@@ -50,19 +56,19 @@ public class Main_DAO {
 		dao_produit.create(new Produit("ggggg"));
 		
 		//Read produit
-		dao_produit.read();
+		dao_produit.afficher();
 		
 		//Update produit
-		dao_produit.update(null, 2, "Cedric");
-		dao_produit.read();
+		dao_produit.update( 2, "Cedric");
+		dao_produit.afficher();
 		
 		//Delete produit
-		dao_produit.delete(null, 5);
-		dao_produit.read();
+		dao_produit.delete( 5);
+		dao_produit.afficher();
 		
 		//Vider Table produit
 		//dao_produit.vider_table(null);
-		dao_produit.read();
+		dao_produit.afficher();
 		
 		
 		
