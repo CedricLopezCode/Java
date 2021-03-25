@@ -1,28 +1,72 @@
 package resume_Java;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.ArrayList; //Tableau Dynamique
+import java.util.List; //Tableau Dynamique
+import java.util.Vector; //Tableau Dynamique
+import java.util.Arrays;	//Tableau
+import java.util.Collections;//Tableau Dynamique
+import java.util.Scanner; //Saisie Utilisateur
+import java.util.Date; //Date
+import java.sql.*; //Classes pour l'utilisation de JDBC
+//Pour le DAO
+import java.sql.Connection; 
+import java.sql.DriverManager; //Interagir avec la DB
+import java.sql.PreparedStatement; //Préparation de Requetes SQL
+import java.sql.ResultSet; //Récupéré résultat quand on fait un SELECT
+//Pas encore vu
+import java.util.Map; //contient les pairs <clé ,valeur >. Chaque pair est connu comme entrée pair est connu comme entréee.Map contient des éléments à clé unique 
+import java.util.Iterator; //Patron de conception comportemental qui permet de parcourir une structure de données complexe de façon séquentielle sans exposer ses détails internes
+import java.util.Hashtable; //implémente l'interface Map. Chaque liste est identifiée est identifiée par sa clé donc elle permet de créer une collection d' objets associés à des noms. Elle est similaire à HashMap mais elle est synchronisée.
+import java.applet.*; //Classe sde base pour les applets
+import java.awt.*; //Classes d'interface graphique AWT
+import java.io.*; //Classes de in/out (flux, fichiers)
+import java.lang.*; //Classes de support du langage
+import java.math.*; //Classes de gestion de grands nombres
+import java.net.*; //Classes dee support réseau (URL, sockets)
+import java.rmi.*; //Classes pour les méthode invoqué à partir de JVM non locales
+import java.security.*; //Classes et interfaces pour la gestion de la sécurité
+import java.text.*; //Classes pour la manipulation de textes, dates et nombres dans plusieurs langages
+import javax.swing.*; //Classes d'interface graphique // !!! javax ( == JEE ???)
+
+//           --------------------------------------------------------
 
 public class A_00_main {
 
 	public static void main(String[] args) {
-
 		
 					//Type
 		
 	int nombre = 5;
 	float a_virgule = 5.5f; // Attention au f derriere
 	double a_virgule_double = 6.6; // Ou sinon utiliser double
-	String stringg = "Salut ";// Attention à la majuscule //Double obligatoirement
-	char char_a = 'A'; //Simple obligatoirement
+	String stringg = "Salut ca va bien ?";// Attention à la majuscule //Double "" obligatoirement
+	char char_a = 'A'; //Simple '' obligatoirement
 	boolean vrai_ou_faux = true;
 	int x,y;
 	x= 6;
 	y= 7;
 	final int CONSTANTE_NOM_EN_MAJUSCULE = 8;
+	
+			//Type générique
+	//Comme ça 1 seule constructeur pour plusieurs type
+	Type_generique monnaie_nom = new Type_generique<String>("Euro");
+	Type_generique monnaie_valeur = new Type_generique<Integer>(6);
+	Type_generique monnaie_signe = new Type_generique<Character>('€');
 
+		//Méthode de String
+	
+	stringg.length();//Retourne la Longueur // = 6 (avec l'esp)
+	stringg.charAt(0);//Retourne le nime char //='S'
+	String stringg2 = stringg.substring(2,15);//à partir de l'indice 2 jusqu'à l'indice 15
+	stringg.equals(stringg2); //Returne boolean
+	stringg.toUpperCase();//Met en MAJUSCULE
+	stringg.toLowerCase();//Met en minuscule
+	stringg.indexOf("a"); //Retourne la position du 1er A //-1 si pas trouvé
+	stringg.replace("a", "f"); //remplace tous les a par des f
+	stringg.valueOf(20.6); // valeur devient un string
+	System.out.println(stringg);
+	
+	
 	
 					//Tableaux  //Taille fixe
 		//1D
