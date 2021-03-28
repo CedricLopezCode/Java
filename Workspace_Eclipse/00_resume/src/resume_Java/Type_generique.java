@@ -11,6 +11,12 @@ public class Type_generique<T> {
 		super();
 		this.monnaie = monnaie;
 	}
+
+	@Override
+	public String toString() {
+		return "Type_generique [monnaie=" + monnaie + "]";
+	}
+	
 	
 	 
 }

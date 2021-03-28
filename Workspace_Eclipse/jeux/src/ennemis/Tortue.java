@@ -1,5 +1,5 @@
 package ennemis;
 
-public class Tortue {
+public class Tortue extends Animal {
 
 }

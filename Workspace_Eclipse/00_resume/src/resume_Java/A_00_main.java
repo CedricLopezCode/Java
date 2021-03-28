@@ -49,9 +49,9 @@ public class A_00_main {
 	
 			//Type générique
 	//Comme ça 1 seule constructeur pour plusieurs type
-	Type_generique monnaie_nom = new Type_generique<String>("Euro");
-	Type_generique monnaie_valeur = new Type_generique<Integer>(6);
-	Type_generique monnaie_signe = new Type_generique<Character>('€');
+	Type_generique monnaie_nom = new Type_generique<String>("Euro"); 	System.out.println(monnaie_nom);
+	Type_generique monnaie_valeur = new Type_generique<Integer>(6);  	System.out.println(monnaie_valeur);
+	Type_generique monnaie_signe = new Type_generique<Character>('€');  System.out.println(monnaie_signe);
 
 		//Méthode de String
 	
