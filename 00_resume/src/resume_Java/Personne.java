@@ -1,4 +1,4 @@
-package test9;
+package resume_Java;
 
 public class Personne {
 	private int age = 18;
@@ -20,3 +20,4 @@ public class Personne {
 		System.out.println(nom + " " + age + " ans");
 	}
 }
+
