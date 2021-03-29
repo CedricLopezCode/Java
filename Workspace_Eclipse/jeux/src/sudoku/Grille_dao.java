@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class Grille_dao {
 
+public class Grille_dao {
+	
 	Connection connect = GetDB.getConnection();
 			
 	public int choix_numero_grille() {
@@ -73,10 +74,48 @@ public class Grille_dao {
 				lcc.setInt(3, cell[1]);
 				lcc.setInt(4, cell[2]);
 				lcc.executeUpdate();
+				System.out.println("Nouvelle Grille ajoutée");
 			}
 		}catch(Exception e) {
 			System.out.println(e);
 			System.out.println("ajout sudoku KO");
 		}
 	}
+	
+	public static void creer_DB() {
+		Connection initConnection = GetDB.initConnection();
+		try {
+			PreparedStatement newDB = initConnection.prepareStatement("CREATE DATABASE IF NOT EXISTS ?");
+			newDB.setString(1, "sudoku");
+			System.out.println(newDB);
+			newDB.executeUpdate();
+			System.out.println("BD créee");
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("creation DB KO");
+		}
+	}
+	
+	public void creer_table() {
+		try {
+			PreparedStatement newTable = connect.prepareStatement("CREATE TABLE IF NOT EXISTS sudoku " + "(?,?,?,?,?)");
+			System.out.println(newTable);
+			newTable.setString(1, "id_case INT NOT NULL AUTO_INCREMENT PRIMARY KEY");
+			System.out.println(newTable);
+			newTable.setString(2, "num_grille INT");
+			System.out.println(newTable);
+			newTable.setString(3, "num_ligne INT");
+			System.out.println(newTable);
+			newTable.setString(4, "num_col INT");
+			System.out.println(newTable);
+			newTable.setString(5, "chiffre INT");
+			System.out.println(newTable);
+			newTable.execute();
+			System.out.println("Table créee");
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("creation table KO");
+		}
+	}
+	
 }//Fin Grille dao
