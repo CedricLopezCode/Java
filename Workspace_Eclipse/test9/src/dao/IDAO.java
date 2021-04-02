@@ -11,11 +11,11 @@ public interface IDAO<T> {//typage generique
 	public void create(T object); //object par convention
 	public void afficher();
 	public List<T> lister();
-	public void update(int id, String nv_nom);
+	public void update(T object);
 	public void delete(int id);
 	public void findBy(T object);
 	public void vider_table(T object);
-	
+	public boolean login(String email, String pwd);
 	
 	
 	

@@ -6,6 +6,7 @@ public class Client {
 	protected String nom;
 	protected String prenom;
 	protected static int comptage=1;
+	
 	public Client(String nom, String prenom) {
 		super();
 		this.nom = nom;

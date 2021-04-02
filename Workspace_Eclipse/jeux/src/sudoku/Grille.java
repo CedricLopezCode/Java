@@ -116,6 +116,7 @@ public class Grille {
 			System.out.println("|___|___|___|___|___|___|___|___|___|");
 		}System.out.println("");
 	}
+	
 //-----------------------------------------------------------------------------------------
 					// Méthode
 	public void insertion_chiffre(Cellule en_cours) {

@@ -74,6 +74,7 @@ public class Grille_dao {
 				lcc.setInt(3, cell[1]);
 				lcc.setInt(4, cell[2]);
 				lcc.executeUpdate();
+				System.out.println(lcc);
 				System.out.println("Nouvelle Grille ajoutée");
 			}
 		}catch(Exception e) {

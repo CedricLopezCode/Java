@@ -6,16 +6,16 @@ public class Main_ajout_grille_dao {
 		
 //-----------------------------------------------
 		//Création DB
-		Grille_dao.creer_DB();
+		//Grille_dao.creer_DB();
 //-----------------------------------------------		
 		Grille_dao ajoutDao = new Grille_dao();
 //-----------------------------------------------		
 		//Création Table
-		ajoutDao.creer_table();
+		//ajoutDao.creer_table();
 //-----------------------------------------------		
 		//Insertion Data
 		int[][] tab_cell_connues = {
-				{1,1,8},
+				{1,1,7},
 				{1,3,3},
 				{1,4,1},
 				{1,7,9},
