@@ -108,9 +108,10 @@ public class ListeArticlePage extends JFrame {
 		//JButton btnSup = new JButton("SUPPRIMER");
 		btnSup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int id = table.getSelectedRow();
-				int article_id = (int) table.getModel().getValueAt(id, 0);
+				int ligne = table.getSelectedRow();
+				int article_id = (int) table.getModel().getValueAt(ligne, 0);
 				adao.delete(article_id);
+				table.setModel(ArticleDAO.liste());
 			}
 		});
 		btnSup.setBounds(908, 472, 89, 23);

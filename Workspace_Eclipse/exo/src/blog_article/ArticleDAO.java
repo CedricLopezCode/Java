@@ -51,7 +51,6 @@ public class ArticleDAO implements IDAO<Article>{
 				tempArticle.setCreated_at(rs.getString("created_at"));
 				tempArticle.setAuteur(rs.getInt("id_auteur"));
 				
-				
 				listeArticle.add(tempArticle);
 			}
 		}catch(Exception e) {
@@ -66,7 +65,7 @@ public class ArticleDAO implements IDAO<Article>{
 	public void delete(int id) {
 		
 		try {
-			PreparedStatement req = connect.prepareStatement("DELETE FROM article WHERE id = ? ");
+			PreparedStatement req = connect.prepareStatement("DELETE FROM article WHERE id_article = ? ");
 			req.setInt(1, id);
 			req.executeUpdate();
 			
@@ -115,7 +114,6 @@ public class ArticleDAO implements IDAO<Article>{
 			vect.add(art.getResum());
 			tab.addRow(vect);
 		}
-		System.out.println(tab);
 		return tab;
 	}
 
