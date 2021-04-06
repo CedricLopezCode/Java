@@ -69,11 +69,11 @@ public class UserDAO implements IDAO<User>{
 	}
 
 	@Override
-	public void delete(User object) {
+	public void delete(int id) {
 		
 		try {
 			PreparedStatement req = connect.prepareStatement("DELETE FROM utilisateur WHERE id = ?");
-			req.setInt(1, object.getId_user());
+			req.setInt(1, id);
 			req.executeUpdate();
 			
 			System.out.println("Delete ok");
@@ -131,16 +131,18 @@ public class UserDAO implements IDAO<User>{
 		}
 	}
 
-	@Override
-	public void findBy(User object) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public void vider_table(User object) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public User findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

@@ -65,16 +65,15 @@ public class AddArticle extends JFrame {
 		btnNewArticle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArticleDAO aDao = new ArticleDAO();
-				
 
 				String saisieTitre = titre.getText();
-				String saisieResume = contenu.getText();
-				String saisieContenu = resume.getText();
+				String saisieResume = resume.getText();
+				String saisieContenu = contenu.getText();
 				
 				if( saisieTitre.equals("") || saisieResume.equals("") || saisieContenu.equals("") ) {
 					JOptionPane.showMessageDialog(btnNewArticle, "Tous les champs doivent être remplis");
 				}else{
-					Article newArticle = new Article(saisieTitre, saisieResume, saisieContenu, 1);
+					Article newArticle = new Article(saisieTitre, saisieResume, saisieContenu, 2);
 					aDao.create(newArticle);
 					JOptionPane.showMessageDialog(btnNewArticle, "Article Ajouté");
 					ListeArticlePage liste = new ListeArticlePage(saisieEmail);
@@ -86,5 +85,9 @@ public class AddArticle extends JFrame {
 		});
 		btnNewArticle.setBounds(375, 554, 89, 23);
 		contentPane.add(btnNewArticle);
+	}
+
+	public AddArticle() {
+		// TODO Auto-generated constructor stub
 	}
 }

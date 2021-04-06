@@ -38,12 +38,12 @@ public class ArticleDAO implements IDAO<Article>{
 	@Override
 	public List<Article> read() {
 		List<Article> listeArticle = new ArrayList<>();
-		Article tempArticle = new Article();
 		try {
 			PreparedStatement req = connect.prepareStatement("SELECT * FROM article");
 			ResultSet rs = req.executeQuery();
 			
 			while(rs.next()) {
+				Article tempArticle = new Article();
 				tempArticle.setId_article(rs.getInt("id_Article"));
 				tempArticle.setTitre(rs.getString("titre"));
 				tempArticle.setResum(rs.getString("resum"));
@@ -51,21 +51,23 @@ public class ArticleDAO implements IDAO<Article>{
 				tempArticle.setCreated_at(rs.getString("created_at"));
 				tempArticle.setAuteur(rs.getInt("id_auteur"));
 				
+				
 				listeArticle.add(tempArticle);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("Read ERREUR !");
 		}
+		System.out.println(listeArticle);
 		return listeArticle;
 	}
 
 	@Override
-	public void delete(Article object) {
+	public void delete(int id) {
 		
 		try {
 			PreparedStatement req = connect.prepareStatement("DELETE FROM article WHERE id = ? ");
-			req.setInt(1, object.getId_article());
+			req.setInt(1, id);
 			req.executeUpdate();
 			
 			System.out.println("Delete ok");
@@ -111,9 +113,9 @@ public class ArticleDAO implements IDAO<Article>{
 			vect.add(art.getId_article());
 			vect.add(art.getTitre());
 			vect.add(art.getResum());
-			
 			tab.addRow(vect);
 		}
+		System.out.println(tab);
 		return tab;
 	}
 
@@ -124,9 +126,29 @@ public class ArticleDAO implements IDAO<Article>{
 	}
 
 	@Override
-	public void findBy(Article object) {
-		// TODO Auto-generated method stub
-		
+	public Article findById(int id) {
+		List<Article> listeArticle = new ArrayList<>();
+		Article tempArticle = new Article();
+		try {
+			PreparedStatement req = connect.prepareStatement("SELECT * FROM article WHERE id_article = ?");
+			req.setInt(1, id);
+			ResultSet rs = req.executeQuery();
+			
+			while(rs.next()) {
+				tempArticle.setId_article(rs.getInt("id_Article"));
+				tempArticle.setTitre(rs.getString("titre"));
+				tempArticle.setResum(rs.getString("resum"));
+				tempArticle.setContenu(rs.getString("contenu"));
+				tempArticle.setCreated_at(rs.getString("created_at"));
+				tempArticle.setAuteur(rs.getInt("id_auteur"));
+				
+				listeArticle.add(tempArticle);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Read ERREUR !");
+		}
+		return tempArticle;
 	}
 
 	@Override
