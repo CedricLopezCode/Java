@@ -113,7 +113,29 @@ public class UserDAO implements IDAO<User>{
 			PreparedStatement listUser = connect.prepareStatement("SELECT * FROM utilisateur WHERE email = ? AND pwd = ?");
 			listUser.setString(1, email);
 			listUser.setString(2, pwd);
-			System.out.println(listUser);
+			ResultSet rs = listUser.executeQuery();
+			
+			while (rs.next()) {
+				User userTempBoucle = new User();
+				userTempBoucle.setId_user(rs.getInt("id_user"));
+				userTempBoucle.setEmail(rs.getString("email"));
+				userTempBoucle.setPwd(rs.getString("pwd"));
+				tableauUser.add(userTempBoucle);
+			}
+			System.out.println(tableauUser.size());
+			return tableauUser.size() == 1 ? true : false;
+		} catch (Exception e3) {
+			e3.printStackTrace();
+			return false;
+		}
+	}
+	
+	//Correction
+	public boolean emailexist(String email) {
+		List<User> tableauUser = new ArrayList<>();
+		try {
+			PreparedStatement listUser = connect.prepareStatement("SELECT * FROM utilisateur WHERE email = ?");
+			listUser.setString(1, email);
 			ResultSet rs = listUser.executeQuery();
 			
 			while (rs.next()) {

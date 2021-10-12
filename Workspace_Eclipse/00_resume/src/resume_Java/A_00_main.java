@@ -86,7 +86,8 @@ public class A_00_main {
 			System.out.print(for_each2d + " ");
 		}
 		System.out.println("");
-	}System.out.println("");
+	}
+	System.out.println("");
 	
 		//3D
 	int [][][] tableau_3D = { //tres rare et difficile

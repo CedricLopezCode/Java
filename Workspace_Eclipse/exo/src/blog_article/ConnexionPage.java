@@ -137,6 +137,8 @@ public class ConnexionPage extends JFrame {
 				
 				if( saisieNom.equals("") || saisiePrenom.equals("") || saisieEmail.equals("") || saisiePwd.equals("") ) {
 					JOptionPane.showMessageDialog(btnCreate, "Tous les champs doivent être remplis");
+				}else if(userDao.emailexist(saisieEmail)){
+					JOptionPane.showMessageDialog(btnCreate, "Ce mail existe deja");
 				}else {
 					User creationUser = new User(saisieNom, saisiePrenom,saisieEmail,saisiePwd);
 					userDao.create(creationUser);

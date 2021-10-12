@@ -8,7 +8,7 @@ public class Main_Blog {
 		connexion.setVisible(true);
 		//connexion.dispose();
 		
-		ListeArticlePage pageArt = new ListeArticlePage();
+		ListeArticlePage pageArt = new ListeArticlePage(null);
 
 	}//Fin Main
 
