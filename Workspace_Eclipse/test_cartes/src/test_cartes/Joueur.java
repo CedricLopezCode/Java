@@ -14,12 +14,16 @@ public class Joueur {
 	public Carte jouer_carte() {
 		Random random = new Random();
 		int numero_carte = random.nextInt(cartes_en_main.size());
-		Carte carte_jouee = cartes_en_main.get(numero_carte);
-		cartes_en_main.remove(numero_carte);
-		System.out.println(nom + " a joue" + carte_jouee.toString());
+		Carte carte_jouee = cartes_en_main.get(numero_carte); 
+		cartes_en_main.remove(numero_carte); 
+		//System.out.println(nom + " a joue " + carte_jouee.toString()); 
 		return carte_jouee;
 		
 	}// fin jouer_carte
+	
+	public void recup_carte(ArrayList<Carte> pli) {
+		cartes_en_main.addAll(pli);	
+	}// fin recup_carte
 	
 		//Constructeur
 	
@@ -59,7 +63,16 @@ public class Joueur {
 
 	@Override
 	public String toString() {
-		return "Joueur " + nom + " a en main : " + cartes_en_main;
+		String texte = "";
+		texte += "\nJoueur " + nom + " a en main " + cartes_en_main.size() + " cartes : \n";
+		if (cartes_en_main == null) {
+			texte += "Rien";
+		} else {
+			for(Carte carte_actuelle : cartes_en_main) {
+				texte += carte_actuelle.toString() + ", ";			
+			}		
+		}
+		return  texte;
 	}
 	
 
